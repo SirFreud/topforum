@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">{{ $thread->title }}</div>
-
-                <div class="panel-body">
+    
+                <div class="panel-body">w
                     {{ $thread->body }}
                 </div>
             </div>
@@ -18,6 +18,11 @@
         <div class="col-md-8 col-md-offset-2">
             @foreach ($thread->replies as $reply)
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ $reply->owner->name }} said
+                        {{ $reply->created_at->diffForHumans() }}
+                    </div>
+
                     <div class="panel-body">
                         {{ $reply->body }}
                     </div>
